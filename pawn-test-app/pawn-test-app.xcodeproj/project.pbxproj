@@ -12,6 +12,10 @@
 		DDB0C382292D6E4E00EC87AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB0C381292D6E4E00EC87AA /* Assets.xcassets */; };
 		DDB0C385292D6E4E00EC87AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB0C384292D6E4E00EC87AA /* Preview Assets.xcassets */; };
 		DDB0C38F292D6E4E00EC87AA /* pawn_test_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB0C38E292D6E4E00EC87AA /* pawn_test_appTests.swift */; };
+		DDB0C3AC292D6EB100EC87AA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DDB0C3AB292D6EB100EC87AA /* ComposableArchitecture */; };
+		DDB0C3AE292D6EB100EC87AA /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = DDB0C3AD292D6EB100EC87AA /* Dependencies */; };
+		DDB0C3B0292D6EC400EC87AA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB0C3AF292D6EC400EC87AA /* LoginView.swift */; };
+		DDB0C3B2292D6F2A00EC87AA /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB0C3B1292D6F2A00EC87AA /* LoginState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +36,8 @@
 		DDB0C384292D6E4E00EC87AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDB0C38A292D6E4E00EC87AA /* pawn-test-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pawn-test-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB0C38E292D6E4E00EC87AA /* pawn_test_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pawn_test_appTests.swift; sourceTree = "<group>"; };
+		DDB0C3AF292D6EC400EC87AA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DDB0C3B1292D6F2A00EC87AA /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB0C3AC292D6EB100EC87AA /* ComposableArchitecture in Frameworks */,
+				DDB0C3AE292D6EB100EC87AA /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +83,7 @@
 			children = (
 				DDB0C37D292D6E4D00EC87AA /* pawn_test_appApp.swift */,
 				DDB0C37F292D6E4D00EC87AA /* ContentView.swift */,
+				DDB0C3A7292D6E7A00EC87AA /* Flows */,
 				DDB0C381292D6E4E00EC87AA /* Assets.xcassets */,
 				DDB0C383292D6E4E00EC87AA /* Preview Content */,
 			);
@@ -97,6 +106,31 @@
 			path = "pawn-test-appTests";
 			sourceTree = "<group>";
 		};
+		DDB0C3A7292D6E7A00EC87AA /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				DDB0C3A9292D6E9000EC87AA /* Search */,
+				DDB0C3A8292D6E8C00EC87AA /* Login */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		DDB0C3A8292D6E8C00EC87AA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DDB0C3AF292D6EC400EC87AA /* LoginView.swift */,
+				DDB0C3B1292D6F2A00EC87AA /* LoginState.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DDB0C3A9292D6E9000EC87AA /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,6 +147,10 @@
 			dependencies = (
 			);
 			name = "pawn-test-app";
+			packageProductDependencies = (
+				DDB0C3AB292D6EB100EC87AA /* ComposableArchitecture */,
+				DDB0C3AD292D6EB100EC87AA /* Dependencies */,
+			);
 			productName = "pawn-test-app";
 			productReference = DDB0C37A292D6E4D00EC87AA /* pawn-test-app.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +201,9 @@
 				Base,
 			);
 			mainGroup = DDB0C371292D6E4D00EC87AA;
+			packageReferences = (
+				DDB0C3AA292D6EB100EC87AA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = DDB0C37B292D6E4D00EC87AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -197,6 +238,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB0C3B0292D6EC400EC87AA /* LoginView.swift in Sources */,
+				DDB0C3B2292D6F2A00EC87AA /* LoginState.swift in Sources */,
 				DDB0C380292D6E4D00EC87AA /* ContentView.swift in Sources */,
 				DDB0C37E292D6E4D00EC87AA /* pawn_test_appApp.swift in Sources */,
 			);
@@ -464,6 +507,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDB0C3AA292D6EB100EC87AA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDB0C3AB292D6EB100EC87AA /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB0C3AA292D6EB100EC87AA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		DDB0C3AD292D6EB100EC87AA /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB0C3AA292D6EB100EC87AA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DDB0C372292D6E4D00EC87AA /* Project object */;
 }

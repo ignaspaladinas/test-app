@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct pawn_test_appApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView(store:
+                        Store(initialState: Login.State(),
+                              reducer: Login()._printChanges()
+                             )
+            )
         }
     }
 }
