@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DDB0C37E292D6E4D00EC87AA /* pawn_test_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB0C37D292D6E4D00EC87AA /* pawn_test_appApp.swift */; };
-		DDB0C380292D6E4D00EC87AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB0C37F292D6E4D00EC87AA /* ContentView.swift */; };
 		DDB0C382292D6E4E00EC87AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB0C381292D6E4E00EC87AA /* Assets.xcassets */; };
 		DDB0C385292D6E4E00EC87AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB0C384292D6E4E00EC87AA /* Preview Assets.xcassets */; };
 		DDB0C38F292D6E4E00EC87AA /* pawn_test_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB0C38E292D6E4E00EC87AA /* pawn_test_appTests.swift */; };
@@ -35,7 +34,6 @@
 /* Begin PBXFileReference section */
 		DDB0C37A292D6E4D00EC87AA /* pawn-test-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pawn-test-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB0C37D292D6E4D00EC87AA /* pawn_test_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pawn_test_appApp.swift; sourceTree = "<group>"; };
-		DDB0C37F292D6E4D00EC87AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DDB0C381292D6E4E00EC87AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDB0C384292D6E4E00EC87AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDB0C38A292D6E4E00EC87AA /* pawn-test-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pawn-test-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				DDB0C37D292D6E4D00EC87AA /* pawn_test_appApp.swift */,
-				DDB0C37F292D6E4D00EC87AA /* ContentView.swift */,
 				DDB0C3C6292E64B200EC87AA /* Utilities */,
 				DDB0C3A7292D6E7A00EC87AA /* Flows */,
 				DDB0C381292D6E4E00EC87AA /* Assets.xcassets */,
@@ -272,7 +269,6 @@
 				DDB0C3C5292DFFCB00EC87AA /* SearchState.swift in Sources */,
 				DDB0C3CA292E65E000EC87AA /* User.swift in Sources */,
 				DDB0C3C8292E64C300EC87AA /* UserClient.swift in Sources */,
-				DDB0C380292D6E4D00EC87AA /* ContentView.swift in Sources */,
 				DDB0C37E292D6E4D00EC87AA /* pawn_test_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
