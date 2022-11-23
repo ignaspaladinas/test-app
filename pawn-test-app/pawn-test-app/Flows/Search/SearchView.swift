@@ -2,14 +2,15 @@ import SwiftUI
 import ComposableArchitecture
 
 struct SearchView: View {
+    
     let store: StoreOf<Search>
     
     var body: some View {
         WithViewStore(store) { viewStore in
             NavigationView {
-             //   searchField
                 usersTableView
-            }.searchable(text: viewStore.binding(
+            }
+            .searchable(text: viewStore.binding(
                 get: \.searchQuery,
                 send: Search.Action.didChangeUserQuery
             ))
@@ -19,7 +20,6 @@ struct SearchView: View {
     private var usersTableView: some View {
         WithViewStore(store.scope(state: \.filteredCellData)) { viewStore in
             List {
-                
                 ForEach(viewStore.state) { cell in
                     let user = cell.user
                     UserCellView(name: user.name.first,
@@ -28,7 +28,8 @@ struct SearchView: View {
                                  location: user.location,
                                  pictureURL: user.picture.medium)
                 }
-            }.onAppear{
+            }
+            .onAppear{
                 viewStore.send(.didAppear)
             }
         }
@@ -43,13 +44,13 @@ struct SearchView: View {
                         get: \.searchQuery,
                         send: Search.Action.didChangeUserQuery
                     ))
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .padding(.vertical)
-                .padding(.horizontal, 12)
-                .background(
-                    Color(UIColor.systemGray6)
-                )
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
+            .padding(.vertical)
+            .padding(.horizontal, 12)
+            .background(
+                Color(UIColor.systemGray6)
+            )
         }
     }
 }
@@ -69,8 +70,8 @@ struct UserCellView: View {
             } placeholder: {
                 ProgressView()
             }
-                .frame(width: 70, height: 70)
-                .clipShape(Capsule(style: .continuous))
+            .frame(width: 70, height: 70)
+            .clipShape(Capsule(style: .continuous))
             VStack(alignment: .leading) {
                 HStack {
                     Text(name)
@@ -78,7 +79,6 @@ struct UserCellView: View {
                 }
                 .fontWeight(.bold)
                 Text(email)
-                
                 Text(addressText)
                     .font(.callout)
             }

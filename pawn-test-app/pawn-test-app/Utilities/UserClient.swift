@@ -1,6 +1,7 @@
 import Foundation
 import Dependencies
 
+/// API Client for user fetching
 struct UserClient {
     var users: @Sendable () async throws -> UserSearch
 }

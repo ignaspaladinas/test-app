@@ -1,8 +1,8 @@
 import SwiftUI
 import ComposableArchitecture
 
-
 struct LoginView: View {
+   
     let store: StoreOf<Login>
     
     var body: some View {
@@ -21,7 +21,9 @@ struct LoginView: View {
         WithViewStore(store) { viewStore in
             VStack {
                 NavigationLink("",
-                               destination: SearchView(store: .init(initialState: Search.State(), reducer: Search()._printChanges())),
+                               destination: SearchView(store:
+                                    .init(initialState: Search.State(),
+                                          reducer: Search()._printChanges())),
                                isActive: viewStore.binding(
                                 get: \.isReadyToLogin,
                                 send: Login.Action.didProduceOutput
@@ -30,7 +32,6 @@ struct LoginView: View {
                 ActionButton(title: "Login") {
                     viewStore.send(.didTapLogin)
                 }
-                
             }
         }
     }
@@ -43,7 +44,6 @@ struct LoginView: View {
                                        send: Login.Action.didChangeEmail)
             )
             .textFieldStyle(LoginTextFieldStyle(errorText: viewStore.emailValidationError))
-            
         }
     }
     
@@ -93,35 +93,34 @@ struct LoginView: View {
             }
         }
     }
-}
-
-struct LoginTextFieldStyle: TextFieldStyle {
     
-    private static let errorColor = Color.red
-    private static let backgroundColor = Color(UIColor.systemGray6)
-   
-    var errorText: String?
+    struct LoginTextFieldStyle: TextFieldStyle {
+        
+        private static let errorColor = Color.red
+        private static let backgroundColor = Color(UIColor.systemGray6)
+       
+        var errorText: String?
 
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        VStack (alignment: .leading) {
-            
-            
-            configuration
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .padding(.vertical)
-                .padding(.horizontal, 12)
-                .background(
-                    Self.backgroundColor
-                ).overlay {
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(errorText != nil ? Self.errorColor : Self.backgroundColor, lineWidth:  1)
-                    
+        func _body(configuration: TextField<Self._Label>) -> some View {
+            VStack (alignment: .leading) {
+                
+                configuration
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .padding(.vertical)
+                    .padding(.horizontal, 12)
+                    .background(
+                        Self.backgroundColor
+                    ).overlay {
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(errorText != nil ? Self.errorColor : Self.backgroundColor, lineWidth:  1)
+                        
+                    }
+                if let errorText {
+                    Text(errorText)
+                        .foregroundColor(Self.errorColor)
+                        .font(.footnote)
                 }
-            if let errorText {
-                Text(errorText)
-                    .foregroundColor(Self.errorColor)
-                    .font(.footnote)
             }
         }
     }

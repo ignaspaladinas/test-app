@@ -6,6 +6,7 @@ struct Login: ReducerProtocol {
     
     // MARK: - State
     struct State: Equatable {
+      
         var email: String = ""
         var password: String = ""
         

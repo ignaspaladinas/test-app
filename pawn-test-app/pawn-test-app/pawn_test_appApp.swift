@@ -14,8 +14,7 @@ struct pawn_test_appApp: App {
         WindowGroup {
             LoginView(store:
                         Store(initialState: Login.State(),
-                              reducer: Login()._printChanges()
-                             )
+                              reducer: Login()._printChanges())
             )
         }
     }
