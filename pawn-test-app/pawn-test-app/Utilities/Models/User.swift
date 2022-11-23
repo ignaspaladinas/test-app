@@ -28,6 +28,6 @@ struct User: Decodable, Equatable, Sendable {
     }
 
     struct Picture: Codable, Equatable {
-        let thumbnail: String
+        let medium: String
     }
 }
