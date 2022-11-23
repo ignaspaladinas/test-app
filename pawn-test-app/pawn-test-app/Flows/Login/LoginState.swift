@@ -11,8 +11,9 @@ struct Login: ReducerProtocol {
         
         var emailValidationError: String?
         var passwordValidationError: String?
+        var textFieldsValidated = false
         
-        var isReadyToLogin: Bool { emailValidationError == nil && passwordValidationError == nil }
+        var isReadyToLogin: Bool { textFieldsValidated && emailValidationError == nil && passwordValidationError == nil }
     }
     
     // MARK: - Action
@@ -20,6 +21,7 @@ struct Login: ReducerProtocol {
         case didChangeEmail(String)
         case didChangePassword(String)
         case didTapLogin
+        case didProduceOutput
     }
     
     // MARK: - Reducer
@@ -31,9 +33,9 @@ struct Login: ReducerProtocol {
             state.password = password
         case .didTapLogin:
             state.validateTextFields()
-            if state.isReadyToLogin {
-                // Open other screen
-            }
+            
+        case .didProduceOutput:
+            state.textFieldsValidated = false
         }
         return .none
     }
@@ -42,21 +44,26 @@ struct Login: ReducerProtocol {
 extension Login.State {
     
     // MARK: - Validation
-    private mutating func validateEmail() {
+    
+    private func isEmailValid(email: String) -> Bool {
         let emailValidationRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
-        let emailValidationPredicate = NSPredicate(format: "SELF MATCHES %@", email)
+        let emailValidationPredicate = NSPredicate(format: "SELF MATCHES %@", emailValidationRegex)
         
-        if !emailValidationPredicate.evaluate(with: emailValidationRegex) {
-            emailValidationError = "Invalid email format"
-        } else {
+        return emailValidationPredicate.evaluate(with: email)
+    }
+    
+    private mutating func validateEmail() {
+        if isEmailValid(email: email) {
             emailValidationError = nil
+        } else {
+            emailValidationError = "Invalid email format"
         }
     }
     
     private mutating func validatePassword() {
         if password.count < 6 {
-            passwordValidationError = "Password must be at leat 6 characters"
+            passwordValidationError = "Password must be at least 6 characters"
         } else {
             passwordValidationError = nil
         }
@@ -65,5 +72,6 @@ extension Login.State {
     mutating func validateTextFields() {
         validateEmail()
         validatePassword()
+        textFieldsValidated = true
     }
 }
